@@ -3,7 +3,7 @@
 # permissions
 chown -R abc:abc \
     /config \
-    /downloads
+    /mnt/downloads
   
 chmod a+x \
   /aria2/script/*

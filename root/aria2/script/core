@@ -2,7 +2,7 @@
 
 GET_BASE_PATH() {
     # Aria2下载目录
-    DOWNLOAD_PATH="/downloads"
+    DOWNLOAD_PATH="/mnt/downloads"
     # 种子备份目录
     BAK_TORRENT_DIR="/config/backup-torrent"
     # 日志、配置文件保存路径

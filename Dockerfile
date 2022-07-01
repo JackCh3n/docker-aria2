@@ -29,6 +29,6 @@ RUN apk add --no-cache curl jq findutils python3 python3-dev py-pip zlib-dev bzi
     && rm -rf /var/cache/apk/* /tmp/*s
 
 # volume
-VOLUME /mnt/downloads
+VOLUME /mnt/downloads /tmp
 
 EXPOSE 6800 32516 32516/udp

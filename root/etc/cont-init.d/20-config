@@ -5,8 +5,8 @@ mkdir -p \
 	/config/ssl \
   /config/logs \
   /config/backup-torrent \
-  /downloads/completed \
-  /downloads/recycle
+  /mnt/downloads/completed \
+  /mnt/downloads/recycle
 
 # copy files
 if [[ ! -e /config/aria2.conf ]]

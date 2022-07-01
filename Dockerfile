@@ -23,6 +23,7 @@ RUN apk add --no-cache curl jq findutils python3 python3-dev py-pip zlib-dev bzi
     && pip3 install setuptools \
     && pip3 install aria2p \
     && mkdir -p /mnt/downloads \
+    && ln -s /usr/bin/python3.8 /usr/bin/python \
     && chmod a+x /usr/local/bin/aria2c \
     && echo "docker-aria2-$(date +"%Y-%m-%d")" > /aria2/build-date \
     && rm -rf /var/cache/apk/* /tmp/*s

@@ -1,7 +1,8 @@
 name: Build Docker Image
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ master ]
 
 jobs:
   buildx:
@@ -42,15 +43,4 @@ jobs:
           tags: |
             lenyuadmin/scf-aria2:stable-${{ steps.set-version.outputs.version }}
             lenyuadmin/scf-aria2:latest
-
-      - name: Build dockerfile webui
-        if: steps.set-version.outputs.status == 'success'
-        uses: docker/build-push-action@v2
-        with:
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm/v7,linux/arm64
-          push: true
-          tags: |
-            lenyuadmin/scf-aria2:webui-stable-${{ steps.set-version.outputs.version }}
-            lenyuadmin/scf-aria2:webui-latest  
 

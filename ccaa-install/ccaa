@@ -8,7 +8,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
 
 aria2pid=$(pgrep 'aria2c')
-caddypid=$(pgrep 'caddy')
 
 case $1 in
 	'start')
@@ -31,7 +30,6 @@ case $1 in
 			fi
 
 			sed -i "s/rpc-secret=/rpc-secret=${rpc_secret}/g" /etc/ccaa/aria2.conf
-			sed -i "s/password/${new_password}/g" /etc/ccaa/caddy.conf
 			osip=$(curl -4s https://api.ip.sb/ip)
 			echo '-------------------------------------------------------------'
 			echo "大功告成！你的Aria2已经准备就绪！"
@@ -58,7 +56,6 @@ case $1 in
 		fi
 
 		nohup aria2c --conf-path=/etc/ccaa/aria2.conf > /etc/ccaa/aria2.log 2>&1 &
-		nohup caddy -conf="/etc/ccaa/caddy.conf" > /etc/ccaa/caddy.log 2>&1 &
 		exit
 	;;
 	'stop')
@@ -69,7 +66,6 @@ case $1 in
 		kill -9 ${aria2pid}
 		kill -9 ${caddypid}
 		nohup aria2c --conf-path=/etc/ccaa/aria2.conf > /etc/ccaa/aria2.log 2>&1 &
-		nohup caddy -conf="/etc/ccaa/caddy.conf" > /etc/ccaa/caddy.log 2>&1 &
 		exit;
 	;;
 	'status')

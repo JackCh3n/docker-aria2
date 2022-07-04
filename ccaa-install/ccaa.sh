@@ -107,14 +107,14 @@ function setting(){
 	caddypass="admin"
 
 	#执行替换操作
-	mkdir -p ${downpath}
+	# mkdir -p ${downpath}
 	sed -i "s%dir=%dir=${downpath}%g" /etc/ccaa/aria2.conf
 	#更新tracker
 	bash ./upbt.sh
 
 	#安装AriaNg
-	unzip AriaNg.zip
-	cp -a AriaNg /etc/ccaa
+	# unzip AriaNg.zip
+	# cp -a AriaNg /etc/ccaa
 
 	#启动服务
 	#nohup aria2c --conf-path=/etc/ccaa/aria2.conf > /etc/ccaa/aria2.log 2>&1 &

@@ -30,17 +30,15 @@ case $1 in
 			fi
 
 			sed -i "s/rpc-secret=/rpc-secret=${rpc_secret}/g" /etc/ccaa/aria2.conf
-			osip=$(curl -4s https://api.ip.sb/ip)
 			echo '-------------------------------------------------------------'
 			echo "大功告成！你的Aria2已经准备就绪！"
-			echo "访问：http://${osip}:6080/#!/settings/ariang 来进行最后一步操作 -> 设置RPC秘钥"
 			echo '登录用户名: admin'
-			if [ ${psw_isRandom} == "yes" ] 
-			then
-				echo "登录密码: " ${new_password}
-			else
-				echo "登录密码: (用户已设置)"
-			fi
+			# if [ ${psw_isRandom} == "yes" ] 
+			# then
+			# 	echo "登录密码: " ${new_password}
+			# else
+			# 	echo "登录密码: (用户已设置)"
+			# fi
 
 			if [ ${secret_isRandom} == "yes" ] 
 			then

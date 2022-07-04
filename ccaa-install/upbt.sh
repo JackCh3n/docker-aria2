@@ -9,7 +9,7 @@ export PATH
 
 function up_tracker(){
 	#下载最新的bt-tracker
-	wget -O /tmp/trackers_best.txt https://api.xiaoz.org/trackerslist/
+	wget -O /tmp/trackers_best.txt https://cdn.jsdelivr.net/gh/XIU2/TrackersListCollection@master/all_aria2.txt
 	tracker=$(cat /tmp/trackers_best.txt)
 	#替换处理bt-tracker
 	tracker="bt-tracker="${tracker}

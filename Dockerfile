@@ -14,7 +14,7 @@ RUN cd /etc/yum.repos.d/ \
     && yum update -y
 
 # 安装python3.9
-RUN yum -y install python39 wget unzip curl \
+RUN yum -y install python39 wget unzip curl lsof \
     && ln -s /usr/bin/python3.9 /usr/bin/python \
     && ln -s /usr/lib/python3.9/site-packages/pip /usr/bin/pip \
     && python -V \
@@ -28,7 +28,10 @@ RUN touch /etc/aria2/aria2.session \
     && bash install.sh \
     && echo "aria2c --conf-path=/etc/aria2/aria2.conf" >> /etc/rc.local \
     && echo "docker-aria2-$(date +"%Y-%m-%d-%H-%I")" > /etc/aria2/build-date \
-    && aria2c --conf-path=/etc/aria2/aria2.conf -D
+    && aria2c --conf-path=/etc/aria2/aria2.conf -D \
+    && lsof -i TCP:6800
+
 # 挂载
 VOLUME /tmp /mnt/downloads
+EXPOSE 6800
 CMD [ "aria2c", "/etc/aria2/aria2.conf", "-D" ]

@@ -27,6 +27,7 @@ RUN touch /etc/aria2/aria2.session \
     && cd /etc/aria2/ \
     && bash install.sh \
     && echo "aria2c --conf-path=/etc/aria2/aria2.conf" >> /etc/rc.local \
+    && echo "docker-aria2-$(date +"%Y-%m-%d-%H-%I")" > /etc/aria2/build-date \
     && aria2c --conf-path=/etc/aria2/aria2.conf -D
 # 挂载
 VOLUME /tmp /mnt/downloads

@@ -31,3 +31,4 @@ RUN touch /etc/aria2/aria2.session \
     && aria2c --conf-path=/etc/aria2/aria2.conf -D
 # 挂载
 VOLUME /tmp /mnt/downloads
+CMD [ "aria2c", "/etc/aria2/aria2.conf", "-D" ]

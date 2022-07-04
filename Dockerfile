@@ -9,4 +9,4 @@ ADD ./ccaa-install/ /root/ccaa-install/
 
 RUN cd ccaa-install && bash ./ccaa.sh
 
-# CMD /usr/sbin/ccaa start && /bin/bash --login
+CMD /usr/sbin/ccaa start && /bin/bash --login
